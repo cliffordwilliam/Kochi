@@ -94,38 +94,40 @@ export default function ChatRoom() {
   }, [dispatch]);
 
   return (
-    <div>
-      <button
-        onClick={(e) => {
-          e.preventDefault();
-          navigate("/");
-        }}
-      >
-        Home
-      </button>
-      <h1>{id}</h1>
-      {chats.length === 0 ? (
-        <p>Loading...</p>
-      ) : (
-        <>
-          <ul>
-            {chats.map((chat) => (
-              <li key={chat.id}>{chat.message}</li>
-            ))}
-          </ul>
-        </>
-      )}
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="message">New Message:</label>
-        <input
-          type="text"
-          id="message"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          required
-        />
-        <button type="submit">Send</button>
-      </form>
-    </div>
+    <>
+      <div>
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            navigate("/");
+          }}
+        >
+          Home
+        </button>
+        <h1>{id}</h1>
+        {chats.length === 0 ? (
+          <p>Loading...</p>
+        ) : (
+          <>
+            <ul>
+              {chats.map((chat) => (
+                <li key={chat.id}>{chat.message}</li>
+              ))}
+            </ul>
+          </>
+        )}
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="message">New Message:</label>
+          <input
+            type="text"
+            id="message"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            required
+          />
+          <button type="submit">Send</button>
+        </form>
+      </div>
+    </>
   );
 }
