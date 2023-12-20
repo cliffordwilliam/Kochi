@@ -1,0 +1,486 @@
+@import url("https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;700;800&family=Righteous&display=swap");
+
+:root {
+	--white-color: #fbfef9;
+	--black-color: #000004;
+	--primary-color: #359381;
+	--secondary-color: #65c1b0;
+	--accent-color: #003329;
+	--light-color: #aaa;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Righteous", sans-serif;
+}
+
+body {
+	background: var(--white-color);
+	min-height: 100dvh;
+	overflow-x: hidden;
+}
+
+header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: 30px 100px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	z-index: 100;
+}
+
+.logo {
+	font-size: 2rem;
+	color: var(--primary-color);
+	pointer-events: none;
+	text-shadow: 1px 1px var(--black-color);
+}
+
+.navigation a {
+	text-decoration: none;
+	font-size: 1.1rem;
+	color: var(--white-color);
+	padding: 6px 15px;
+	border-radius: 20px;
+	margin: 0 10px;
+	font-weight: 600;
+	text-shadow: 2px 2.7px 0.5rem var(--black-color);
+}
+
+.navigation a:hover {
+	background: var(--primary-color);
+	color: var(--white-color);
+}
+
+.parallax {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 99.4dvh;
+	z-index: -1;
+}
+
+#text {
+	position: absolute;
+	font-size: 5rem;
+	color: var(--white-color);
+	text-shadow: 2.8px 5px 2rem var(--black-color);
+}
+
+.parallax img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	pointer-events: none;
+}
+
+.sec {
+	position: relative;
+	background: var(--accent-color);
+	padding: 100px;
+}
+
+.sec h2 {
+	font-size: 3rem;
+	color: var(--white-color);
+	margin-bottom: 10px;
+}
+
+.sec p {
+	font-size: 1.8rem;
+	color: var(--white-color);
+	font-weight: 300;
+}
+
+.credit {
+	padding: 1rem;
+	text-align: center;
+	background: var(--white-color);
+	font-size: 1rem;
+	text-transform: capitalize;
+}
+
+.credit span {
+	font-family: "Righteous", sans-serif;
+	color: var(--secondary-color);
+	font-weight: bold;
+}
+
+.chat-box {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: linear-gradient(#003329, #359381);
+	/* z-index: 0; */
+}
+
+.chat-box .container {
+	display: flex;
+	position: relative;
+	margin-top: 3rem;
+	margin-bottom: 3rem;
+	width: 1200px;
+	max-width: 100%;
+	height: calc(94dvh - 40px);
+	background: var(--white-color);
+	box-shadow: 5px 5.8px 0.75rem var(--black-color);
+	border-radius: 0.4rem;
+}
+
+.chat-box .container .leftside {
+	border-top-left-radius: 0.4rem;
+	border-bottom-left-radius: 0.4rem;
+	border-right: 1px solid rgba(0, 0, 0, 0.2);
+	position: relative;
+	flex: 30%;
+	background: var(--secondary-color);
+}
+
+.chat-box .container .rightside {
+	border-top-right-radius: 0.4rem;
+	border-bottom-right-radius: 0.4rem;
+	position: relative;
+	flex: 70%;
+	background: var(--white-color);
+}
+
+.chat-box .container .rightside::before {
+	border-radius: 0.4rem;
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: url(https://cdn.discordapp.com/attachments/427408408329846786/1186428237635661925/pattern.png?ex=65933666&is=6580c166&hm=88d46701776ef4ecc46190fae0f784a79240623ab723ba05c28c536fcf4f6ce5&);
+	opacity: 0.1;
+}
+
+.chat-box .container .leftside .header {
+	position: relative;
+	width: 100%;
+	height: 60px;
+	background: var(--white-color);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 15px;
+	border-top-left-radius: 0.4rem;
+}
+
+.leftside .header .roomImg {
+	position: relative;
+	width: 40px;
+	height: 40px;
+	overflow: hidden;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.leftside .header .roomImg .cover {
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.leftside .header .nav-icons {
+	display: flex;
+}
+
+.leftside .header .nav-icons li {
+	display: flex;
+	list-style: none;
+	cursor: pointer;
+	color: var(--black-color);
+	font-size: 1.5rem;
+	margin-left: 22px;
+}
+
+.leftside .search-chat {
+	position: relative;
+	width: 100%;
+	height: 50px;
+	background: var(--white-color);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0 15px;
+}
+
+.leftside .search-chat div {
+	width: 100%;
+}
+
+.leftside .search-chat div {
+	width: 100%;
+}
+
+.leftside .search-chat div input {
+	width: 100%;
+	outline: none;
+	border: none;
+	background: var(--secondary-color);
+	padding: 6px;
+	height: 38px;
+	border-radius: 2.3rem;
+	font-size: 14px;
+	padding-left: 40px;
+}
+
+.leftside .search-chat div input::placeholder {
+	color: var(--white-color);
+}
+
+.leftside .search-chat div i {
+	position: absolute;
+	left: 30px;
+	top: 14px;
+	font-size: 1.2rem;
+}
+
+.leftside .chatlist {
+	position: relative;
+	height: calc(100% - 110px);
+	overflow-y: auto;
+}
+
+.leftside .chatlist .block {
+	position: relative;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 15px;
+	border-bottom: 0.2rem solid var(--white-color);
+	cursor: pointer;
+}
+
+.leftside .chatlist .block .imgbx {
+	position: relative;
+	width: 45px;
+	height: 45px;
+	overflow: hidden;
+	border-radius: 3rem;
+	margin-right: 1rem;
+}
+
+.leftside .chatlist .block .details {
+	position: relative;
+	width: 100%;
+}
+
+.leftside .chatlist .block .details .listhead {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 5px;
+}
+
+.leftside .chatlist .block .details .listhead h4 {
+	font-size: 1.3rem;
+	font-weight: 600;
+	color: var(--white-color);
+}
+
+.leftside .chatlist .block .details .message-p {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 0.8rem;
+}
+
+.leftside .chatlist .block .details .message-p p {
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	font-size: 0.9rem;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.chat-box .container .rightside .header {
+	position: absolute;
+	width: 100%;
+	height: 15rem;
+	background: var(--white-color);
+	box-shadow: 0 3px 10px rgba(0, 0, 0, 1);
+	display: flex;
+	justify-content: space-between;
+	gap: 1.7rem;
+	align-items: center;
+	padding: 0 15px;
+	border-top-right-radius: 0.4rem;
+}
+
+.rightside .header .imgtext {
+	overflow: hidden;
+	border-radius: 100rem;
+	cursor: pointer;
+	left: 1rem;
+}
+
+.rightside .header .category {
+	display: flex;
+	flex-direction: column;
+}
+
+.rightside .header .category h1 {
+	position: relative;
+	color: var(--primary-color);
+	font-size: 2.7rem;
+	font-weight: 600;
+}
+
+.rightside .header .imgtext .cover {
+	display: block;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+/* Login Section Start */
+.title {
+	text-align: center;
+}
+
+.title h1 {
+	margin: 0;
+	padding: 0;
+	color: var(--sub-color);
+	text-transform: capitalize;
+	font-size: 3rem;
+	font-weight: bold;
+}
+
+.container {
+	width: 50%;
+	height: 450px;
+	background: var(--white);
+	margin: 0 auto;
+	border: 1rem solid var(--main-color);
+	box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+.container .left {
+	float: left;
+	width: 50%;
+	height: 100%;
+	background: url(https://media.discordapp.net/attachments/712325980349530122/1182223580017213460/image0_0.jpg?ex=6583ea82&is=65717582&hm=f354efa631d3d5cc79af4dfae57b5f526222cca31af2f331eb28bac8c07e538f&=&format=webp&width=1056&height=1056);
+	background-size: cover;
+	box-sizing: border-box;
+}
+
+.container .right {
+	float: right;
+	width: 50%;
+	height: 100%;
+	box-sizing: border-box;
+}
+
+.formbox {
+	width: 100%;
+	padding: 80px 40px;
+	box-sizing: border-box;
+	height: 400px;
+	background: var(--white);
+}
+
+.formbox p {
+	margin: 0;
+	padding: 0;
+	font-weight: bold;
+}
+
+.formbox input {
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.formbox input[type="text"],
+.formbox input[type="password"] {
+	border: none;
+	border-bottom: 2px solid var(--sub-color);
+	outline: none;
+	height: 40px;
+}
+
+.formbox input[type="text"]:focus,
+.formbox input[type="password"]:focus {
+	border-bottom: 2px solid var(--sub-color);
+}
+/* Login Section End */
+
+/* Register Section Start */
+.regis-container {
+	width: 100%;
+	height: 650px;
+	background: var(--white);
+	margin: 0 auto;
+	border: 1rem solid var(--main-color);
+	box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+.regis-container .regis-left {
+	float: left;
+	width: 50%;
+	height: 100%;
+	background: url(https://media.discordapp.net/attachments/712325980349530122/1182223580310798396/image1_0.jpg?ex=6583ea82&is=65717582&hm=30a2fce4b591dad16c5056110ce8cabcf1d7cc49a6fb4414ea047226990cb633&=&format=webp&width=1056&height=1056);
+	background-size: cover;
+	box-sizing: border-box;
+}
+
+.regis-container .regis-right {
+	float: right;
+	width: 50%;
+	height: 100%;
+	box-sizing: border-box;
+}
+
+.regis-formbox {
+	width: 100%;
+	padding: 80px 40px;
+	box-sizing: border-box;
+	height: 400px;
+	background: var(--white);
+}
+
+.regis-formbox p {
+	margin: 0;
+	padding: 0;
+	font-weight: bold;
+}
+
+.regis-formbox input {
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.regis-formbox input[type="text"],
+.regis-formbox input[type="password"] {
+	border: none;
+	border-bottom: 2px solid var(--sub-color);
+	outline: none;
+	height: 40px;
+}
+
+.regis-formbox input[type="text"]:focus,
+.regis-formbox input[type="password"]:focus {
+	border-bottom: 2px solid var(--sub-color);
+}
+/* Register Section End */
+
+/* FOR DEBUGGING STYLING */
+/* * {
+	outline: solid red;
+} */
