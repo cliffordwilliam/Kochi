@@ -1,0 +1,362 @@
+* {
+  /* outline: 1px solid red; */
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  line-height: 1;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 0.5rem;
+  font-weight: 100;
+}
+header {
+  border-bottom: 3px solid #bbb;
+  background-color: #468a;
+  box-shadow: 0 0 20px #000, inset 0 0 20px #000;
+  padding-top: 1rem;
+}
+footer {
+  border-top: 3px solid #667;
+  background-color: #112a;
+  box-shadow: 0 0 20px #000, inset 0 0 20px #000;
+  padding: 1rem;
+}
+.btn,
+button {
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  color: inherit;
+  padding: 0.25rem 1.5rem;
+  background-color: transparent;
+  border: 3px solid;
+  background-image: linear-gradient(to right, #0000, #05f, #0000);
+  border-image: linear-gradient(to right, #0000, #05f, #0000) 1;
+  transition: filter 0.2s ease, text-shadow 0.2s ease;
+  cursor: pointer;
+  text-decoration: inherit;
+}
+.btn:hover,
+button:hover {
+  filter: brightness(200%);
+  text-shadow: 1px 1px 5px #000;
+}
+html,
+body,
+#root {
+  margin: 0;
+  /* height: 100%; */
+  box-sizing: border-box;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+#root {
+  /* background-color: #001; */
+  color: #eef;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+}
+main {
+  flex: 1;
+  min-height: 100vh;
+}
+input {
+  padding: 0.5rem;
+  min-width: 0;
+  width: 100%;
+  color: #eef;
+}
+input,
+.btn,
+button {
+  margin: 0.5rem;
+  background-color: transparent;
+}
+input {
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  color: inherit;
+  background-color: transparent;
+  border: 1px solid #778;
+  padding: 0.75rem 1.25rem;
+  box-shadow: 0 0 20px #000, inset 0 0 20px #000;
+}
+hr {
+  width: 100%;
+  box-sizing: border-box;
+  border-top: 3px solid;
+  border-image: linear-gradient(to right, #0000, #567, #0000) 1;
+}
+canvas {
+  width: 1024px;
+  height: 576px;
+}
+.t {
+  font-family: "Times New Roman", Times, serif;
+}
+.h-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.v-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.link {
+  text-decoration: none;
+  color: inherit;
+  padding: 0.5rem;
+}
+.cc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.panel {
+  background-color: #014e;
+  padding: 1.5rem;
+  box-shadow: 0 0 20px #000, inset 0 0 20px #000;
+  border: 3px solid #778;
+  margin: 1rem;
+  border-image: linear-gradient(to bottom, #567, #345) 1;
+}
+.mt {
+  margin-top: 1rem;
+}
+.bg {
+  position: fixed;
+  top: -20px;
+  left: -20px;
+  bottom: -20px;
+  right: -20px;
+  z-index: -2;
+  background: radial-gradient(
+      ellipse at center,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0) 37%,
+      rgba(0, 0, 0, 0.65) 100%
+    ),
+    url(./assets/bg.webp) no-repeat center center scroll;
+  /* filter: blur(8px); */
+  filter: blur(6px) hue-rotate(200deg) saturate(200%);
+  background-size: cover;
+  overflow: hidden;
+}
+.ls {
+  letter-spacing: 0.25rem;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.ring-con {
+  position: fixed;
+  z-index: -1;
+  top: -100%;
+  left: 0;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  box-sizing: border-box;
+  animation: rotate 2s linear infinite;
+}
+.ring {
+  position: absolute;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 100rem;
+  border: 3px solid transparent;
+  background: linear-gradient(0deg, #0000, #78b) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.ring.s {
+  position: absolute;
+  width: 95%;
+  background: linear-gradient(45deg, #0000, #78b) border-box;
+}
+
+.ring.ss {
+  position: absolute;
+  width: 80%;
+  background: linear-gradient(-45deg, #0000, #78b) border-box;
+}
+.ring.sss {
+  position: absolute;
+  width: 79%;
+  background: linear-gradient(90deg, #0000, #78b) border-box;
+}
+.ring.ssss {
+  position: absolute;
+  width: 70%;
+  background: linear-gradient(-90deg, #0000, #78b) border-box;
+}
+.ring.ssss {
+  position: absolute;
+  width: 67%;
+  background: linear-gradient(135deg, #0000, #78ba) border-box;
+}
+.ring.sssss {
+  position: absolute;
+  width: 64%;
+  background: linear-gradient(-135deg, #0000, #78b5) border-box;
+}
+.curtain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  z-index: 100;
+}
+.curtain.fade-in {
+  opacity: 1;
+  pointer-events: auto;
+}
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000a;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  z-index: 200;
+}
+.modal.fade-in {
+  opacity: 1;
+  pointer-events: auto;
+}
+.app {
+  display: grid;
+  grid-template-areas:
+    ". title ."
+    ". game controls";
+  grid-template-columns: repeat(3, 1fr);
+}
+
+h1 {
+  text-align: center;
+  grid-area: title;
+}
+
+button {
+  padding: 4px;
+}
+
+.board {
+  border: 2px solid black;
+  user-select: none;
+  margin: auto;
+  grid-area: game;
+}
+
+.controls {
+  grid-area: controls;
+}
+
+.row {
+  display: flex;
+}
+
+.upcoming {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.cell {
+  width: 30px;
+  aspect-ratio: 1;
+  border: 1px solid black;
+}
+
+.cell.hidden {
+  visibility: hidden;
+}
+
+.cell.Empty {
+  background-color: rgb(200, 200, 200);
+}
+
+.cell.I {
+  background-color: rgb(80, 227, 230);
+}
+
+.cell.J {
+  background-color: rgb(36, 95, 223);
+}
+
+.cell.L {
+  background-color: rgb(223, 173, 36);
+}
+
+.cell.O {
+  background-color: rgb(223, 217, 36);
+}
+
+.cell.S {
+  background-color: rgb(48, 211, 56);
+}
+
+.cell.T {
+  background-color: rgb(132, 61, 198);
+}
+
+.cell.Z {
+  background-color: rgb(227, 78, 78);
+}
+
+.panel.mid {
+  max-width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+ol,
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+.limit {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  padding: 0;
+  margin: 0.5rem;
+}

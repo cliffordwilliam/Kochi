@@ -3,6 +3,8 @@ import c from "../c";
 import { useNavigate } from "react-router-dom";
 import { APIrequest } from "../store/apiSlice";
 import { useDispatch } from "react-redux";
+import { setTargetPage } from "../store/curtainSlice";
+import { setContent } from "../store/modalSlice";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -22,17 +24,23 @@ export default function Login() {
 
   const handleApi = (data, isOk) => {
     if (isOk) {
+      dispatch(setContent({ content: "Loading or no data", isOn: false }));
       // Save token to mem
       console.log(data);
       localStorage.setItem("token", data.token);
+      dispatch(setTargetPage("/"));
       // go to home
-      navigate("/");
+      // navigate("/");
     } else {
+      dispatch(
+        setContent({ content: data.response.data.error.msg, isOn: true })
+      );
     }
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    dispatch(setContent({ content: "Loading or no data", isOn: true }));
     dispatch(
       APIrequest({
         method: "POST",
@@ -49,11 +57,11 @@ export default function Login() {
   };
 
   return (
-    <main>
-      <div>
-        <h1>Login Form</h1>
-        <form onSubmit={handleSubmit}>
-          <label>
+    <main className="cc">
+      <div className="v-flex panel">
+        <h1 className="t">Login Form</h1>
+        <form className="v-flex mt" onSubmit={handleSubmit}>
+          <label className="h-flex">
             Username:
             <input
               type="text"
@@ -63,7 +71,7 @@ export default function Login() {
               required
             />
           </label>
-          <label>
+          <label className="h-flex">
             Password:
             <input
               type="password"
@@ -75,10 +83,11 @@ export default function Login() {
           </label>
           <button type="submit">Submit</button>
         </form>
+        <hr />
         <button
           onClick={(e) => {
             e.preventDefault();
-            navigate("/register");
+            dispatch(setTargetPage("/register"));
           }}
         >
           Register

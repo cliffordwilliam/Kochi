@@ -5,6 +5,7 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import ChatRoom from "./pages/ChatRoom";
 import UserChatRoom from "./pages/UserChatRoom";
+import App from "./pages/App";
 // layout
 import PrivateLayout from "./layouts/PrivateLayout";
 import PublicLayout from "./layouts/PublicLayout";
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
           {
             path: "/userChatRoom/:id",
             element: <UserChatRoom />,
+          },
+          {
+            path: "/tetris",
+            element: <App />,
           },
         ],
       },

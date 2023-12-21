@@ -3,6 +3,7 @@ import c from "../c";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { APIrequest } from "../store/apiSlice";
+import { setTargetPage } from "../store/curtainSlice";
 import { useDispatch } from "react-redux";
 import io from "socket.io-client";
 
@@ -95,28 +96,24 @@ export default function ChatRoom() {
   }, [dispatch]);
 
   return (
-    <div>
-      <button
-        onClick={(e) => {
-          e.preventDefault();
-          navigate("/");
-        }}
-      >
-        Home
-      </button>
-      <h1>{id}</h1>
-      {chats.length === 0 ? (
-        <p>Loading...</p>
-      ) : (
-        <>
-          <ul>
-            {chats.map((chat) => (
-              <li key={chat.id}>{chat.message}</li>
-            ))}
-          </ul>
-        </>
-      )}
-      <form onSubmit={handleSubmit}>
+    <main>
+      <div className="panel mid">
+        <h1>{id}</h1>
+        {chats.length === 0 ? (
+          <p>Loading or no data</p>
+        ) : (
+          <>
+            <ul>
+              {chats.map((chat) => (
+                <li className="panel" key={chat.id}>
+                  {chat.message}
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
+      </div>
+      {/* <form onSubmit={handleSubmit}>
         <label htmlFor="message">New Message:</label>
         <input
           type="text"
@@ -126,7 +123,24 @@ export default function ChatRoom() {
           required
         />
         <button type="submit">Send</button>
-      </form>
-    </div>
+      </form> */}
+
+      <div className="v-flex panel mid">
+        <h1 className="t">New Message Form</h1>
+        <form className="v-flex mt" onSubmit={handleSubmit}>
+          <label className="h-flex">
+            Name:
+            <input
+              type="text"
+              name="message"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              required
+            />
+          </label>
+          <button type="submit">Send</button>
+        </form>
+      </div>
+    </main>
   );
 }

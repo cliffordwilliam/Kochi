@@ -3,6 +3,7 @@ import c from "../c";
 import { useNavigate } from "react-router-dom";
 import { APIrequest } from "../store/apiSlice";
 import { useDispatch } from "react-redux";
+import { setTargetPage } from "../store/curtainSlice";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -103,12 +104,24 @@ export default function Home() {
 
   function handleRoomEnter(e, id) {
     e.preventDefault();
-    navigate(`/chatRoom/${id}`);
+    // navigate(`/chatRoom/${id}`);
+    dispatch(setTargetPage(`/chatRoom/${id}`));
   }
 
   function handleUserRoomEnter(e, id) {
     e.preventDefault();
-    navigate(`/userChatRoom/${id}`);
+    // navigate(`/userChatRoom/${id}`);
+    dispatch(setTargetPage(`/userChatRoom/${id}`));
+
+    // <button
+    //   onClick={(e) => {
+    //     e.preventDefault();
+    //     localStorage.removeItem("token");
+    //     dispatch(setTargetPage("/login"));
+    //   }}
+    // >
+    //   Logout
+    // </button>
   }
 
   useEffect(() => {
@@ -136,22 +149,20 @@ export default function Home() {
 
   return (
     <main>
-      <div>
-        <button
-          onClick={(e) => {
-            e.preventDefault();
-            localStorage.removeItem("token");
-            navigate("/login");
-          }}
-        >
-          Logout
-        </button>
-      </div>
       {headers && headers.length && rooms && rooms.length > 0 && (
+        // {headers && headers.length && rooms && rooms.length > 0 && (
         <div>
           {rooms.map((room) => (
-            <div key={room.id}>
-              <p>{headers[+room.name].title}</p>
+            <div key={room.id} className="panel mid">
+              {headers[+room.name]?.urlToImage && (
+                <img
+                  src={headers[+room.name].urlToImage}
+                  alt="Room Image"
+                  className="room-image"
+                />
+              )}
+              <h2 className="limit">{headers[+room.name].title}</h2>
+              {/* <h2 className="t">Private room {room.id}</h2> */}
               <button
                 onClick={(e) => {
                   handleRoomEnter(e, room.id);
@@ -164,29 +175,34 @@ export default function Home() {
         </div>
       )}
 
-      <h2>Add Room Form</h2>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Name:
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
-        </label>
-        <button type="submit">Submit</button>
-      </form>
+      <hr />
+
+      <div className="v-flex panel mid">
+        <h1 className="t">Add Room Form</h1>
+        <form className="v-flex mt" onSubmit={handleSubmit}>
+          <label className="h-flex">
+            Name:
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+            />
+          </label>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
 
       {chatRooms && chatRooms.length > 0 && (
         <div>
           {chatRooms.map((userChatRoom) => (
-            <div key={userChatRoom.id}>
-              <p>{userChatRoom.name}</p>
+            <div key={userChatRoom.id} className="panel mid">
+              <h2>{userChatRoom.name}</h2>
               <button
                 onClick={(e) => {
-                  handleUserRoomEnter(e, userChatRoom.id);
+                  e.preventDefault();
+                  dispatch(setTargetPage(`userChatRoom/${userChatRoom.id}`));
                 }}
               >
                 Enter

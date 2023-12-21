@@ -3,6 +3,8 @@ import c from "../c";
 import { useNavigate } from "react-router-dom";
 import { APIrequest } from "../store/apiSlice";
 import { useDispatch } from "react-redux";
+import { setTargetPage } from "../store/curtainSlice";
+import { setContent } from "../store/modalSlice";
 
 export default function Register() {
   const navigate = useNavigate();
@@ -22,12 +24,16 @@ export default function Register() {
 
   const handleRegister = (data, isOk) => {
     if (isOk) {
+      dispatch(setContent({ content: data.msg, isOn: true }));
     } else {
+      console.log(data.response.data.msg, "ERROR");
+      dispatch(setContent({ content: data.response.data.msg, isOn: true }));
     }
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    dispatch(setContent({ content: "Loading or no data", isOn: true }));
     dispatch(
       APIrequest({
         method: "POST",
@@ -44,11 +50,11 @@ export default function Register() {
   };
 
   return (
-    <main>
-      <div>
-        <h1>Register Form</h1>
-        <form onSubmit={handleSubmit}>
-          <label>
+    <main className="cc">
+      <div className="v-flex panel">
+        <h1 className="t">Register Form</h1>
+        <form className="v-flex mt" onSubmit={handleSubmit}>
+          <label className="h-flex">
             Username:
             <input
               type="text"
@@ -58,7 +64,7 @@ export default function Register() {
               required
             />
           </label>
-          <label>
+          <label className="h-flex">
             Password:
             <input
               type="password"
@@ -70,11 +76,11 @@ export default function Register() {
           </label>
           <button type="submit">Submit</button>
         </form>
+        <hr />
         <button
           onClick={(e) => {
             e.preventDefault();
-            // go to home
-            navigate("/login");
+            dispatch(setTargetPage("/login"));
           }}
         >
           Login
